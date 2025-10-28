@@ -80,5 +80,33 @@ export const bookingType = defineType({
       initialValue: 'pending',
       validation: (Rule) => Rule.required().error('Статус обязателен'),
     }),
+    defineField({
+      name: 'payment_type',
+      title: 'Тип оплаты',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Готівка', value: 'cash'},
+          {title: 'Онлайн оплата', value: 'online'},
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'cash',
+      validation: (Rule) => Rule.required().error('Тип оплати обов\'язковий'),
+    }),
+    defineField({
+      name: 'payment_status',
+      title: 'Статус оплаты',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Не оплачено', value: 'unpaid'},
+          {title: 'Оплачено', value: 'paid'},
+        ],
+        layout: 'radio',
+      },
+      initialValue: 'unpaid',
+      validation: (Rule) => Rule.required().error('Статус оплати обов\'язковий'),
+    }),
   ],
 })

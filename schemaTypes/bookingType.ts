@@ -18,11 +18,11 @@ export const bookingType = defineType({
       type: 'string',
       validation: (Rule) =>
         Rule.required()
-          .regex(/^\+?[0-9\s\-]{7,15}$/, {
+          .regex(/^\+38 \(\d{3}\) \d{3}-\d{2}-\d{2}$|^\+?[0-9\s\-()]{10,20}$/, {
             name: 'phone',
             invert: false,
           })
-          .error('Введите валидный номер'),
+          .error('Введіть український номер: +38 (0XX) XXX-XX-XX'),
     }),
     defineField({
       name: 'rent_from',
